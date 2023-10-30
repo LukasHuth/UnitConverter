@@ -26,3 +26,21 @@ impl From<CELSIUS> for FAHRENHEIT {
 impl From<FAHRENHEIT> for CELSIUS {
     fn from(u: FAHRENHEIT) -> Self { CELSIUS::from(KELVIN::from(u)) }
 }
+
+macro_rules! from_unitcontainer {
+    ($unit:path) => {
+        impl From<UnitContainer> for $unit {
+            fn from(uc: UnitContainer) -> Self {
+                match uc {
+                    UnitContainer::CELSIUS(v) => Self::from(v),
+                    UnitContainer::FAHRENHEIT(v) => Self::from(v),
+                    UnitContainer::KELVIN(v) => Self::from(v),
+                }
+            }
+        }
+    }
+}
+
+from_unitcontainer!(CELSIUS);
+from_unitcontainer!(FAHRENHEIT);
+from_unitcontainer!(KELVIN);

@@ -12,4 +12,3 @@ impl From<FOOT> for CM { fn from(u: FOOT) -> Self { CM::from(M::from(u)) } }
 impl From<INCH> for CM { fn from(u: INCH) -> Self { CM::from(M::from(u)) } }
 impl From<MILE> for CM { fn from(u: MILE) -> Self { CM::from(M::from(u)) } }
 impl From<YARD> for CM { fn from(u: YARD) -> Self { CM::from(M::from(u)) } }
-// more to do

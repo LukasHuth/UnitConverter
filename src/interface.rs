@@ -6,19 +6,10 @@ pub fn show_interface() {
     clear_screen();
     println!("Enter length in {}", input_type.to_string()); 
     let input_number = get_float();
-    let start_type = match input_type {
-        UNITS::MM => UnitContainer::MM(length::MM(input_number)),
-        UNITS::CM => UnitContainer::CM(length::CM(input_number)),
-        UNITS::M => UnitContainer::M(length::M(input_number)),
-        UNITS::KM => UnitContainer::KM(length::KM(input_number)),
-        UNITS::INCH => UnitContainer::INCH(length::INCH(input_number)),
-        UNITS::FOOT => UnitContainer::FOOT(length::FOOT(input_number)),
-        UNITS::YARD => UnitContainer::YARD(length::YARD(input_number)),
-        UNITS::MILE => UnitContainer::MILE(length::MILE(input_number)),
-    };
+    let start_type = UnitContainer::new(input_type, input_number);
     let return_type = get_input_type();
     let result = match return_type {
-        UNITS::MM => converter::length::to_mm(start_type).0,
+        UNITS::MM => length::MM::from(start_type).0,
         UNITS::CM => converter::length::to_cm(start_type).0,
         UNITS::M => converter::length::to_m(start_type).0,
         UNITS::KM => converter::length::to_km(start_type).0,
