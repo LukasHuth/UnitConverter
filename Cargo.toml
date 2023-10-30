@@ -1,0 +1,15 @@
+[package]
+name = "unit_converter"
+version = "0.1.0"
+edition = "2021"
+authors = ["me <me@gmail.com>"]
+
+[lib]
+name = "unit_converter_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "unit_converter_bin"
+path = "src/main.rs"
+
+[dependencies]
