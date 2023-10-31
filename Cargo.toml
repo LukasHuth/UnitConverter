@@ -13,3 +13,5 @@ name = "unit_converter_bin"
 path = "src/main.rs"
 
 [dependencies]
+paste = "1.0.14"
+seq-macro = "0.3.5"

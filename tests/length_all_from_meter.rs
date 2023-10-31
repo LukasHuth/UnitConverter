@@ -13,13 +13,15 @@ fn round(x: f64, decimals: u32) -> f64 {
 macro_rules! metric_tests {
     ($($name:ident: $type:ident: $value:expr,)*) => {
     $(
-        #[test]
-        fn $name() {
-            use unit_converter_lib::units::length::*;
-            let (input, multiplicate) = $value;
-            let expected = input * multiplicate;
-            let meter = M(input);
-            assert_eq!(round(expected, 5), round($type::from(meter).0, 5));
+        paste::item! {
+            #[test]
+            fn [< length_test_ $name >]() {
+                use unit_converter_lib::units::length::*;
+                let (input, multiplicate) = $value;
+                let expected = input * multiplicate;
+                let meter = M(input);
+                assert_eq!(round(expected, 5), round($type::from(meter).0, 5));
+            }
         }
     )*
     }
