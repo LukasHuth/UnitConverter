@@ -11,7 +11,7 @@ macro_rules! volume_tests {
                 $(
                     $(
                         #[test]
-                        fn [< mass_test_ $from_type:lower _to_ $to_type:lower _with_ MASS >]() {
+                        fn [< volume_test_ $from_type:lower _to_ $to_type:lower _with_ MASS >]() {
                             use unit_converter_lib::units::volume::*;
                             let input = $from_type(MASS as f64);
                             let expected = $value * MASS as f64;
