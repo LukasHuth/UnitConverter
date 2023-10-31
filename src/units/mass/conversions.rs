@@ -1,5 +1,5 @@
 #[macro_export]
-macro_rules! create_from {
+macro_rules! mass_create_from {
     ($($from_type:ident:$to_type:ident,)*) => {
         $(
             impl From<$from_type> for $to_type {

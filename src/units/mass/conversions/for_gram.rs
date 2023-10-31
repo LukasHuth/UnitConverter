@@ -5,7 +5,7 @@ impl From<Kilogram> for Gram {
         Self(u.0 * 1_000.0)
     }
 }
-create_from! {
+mass_create_from! {
     Milligram:Gram,
     Tonne:Gram,
     ImperialTon:Gram,

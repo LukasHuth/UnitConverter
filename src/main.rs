@@ -32,7 +32,12 @@ fn main() {
                     println!("{}", en.to_string());
                 }
             },
-            "volume" => {},
+            "volume" => {
+                use unit_converter_lib::units::volume::*;
+                for en in UNITS::iterator() {
+                    println!("{}", en.to_string());
+                }
+            },
             _ => panic!("'{}' does not exist", args[0]),
         };
         return;
@@ -95,8 +100,6 @@ fn main() {
         // */
     }
     if args[0] == OPTIONS[VOLUME] {
-        todo!();
-        /*
         use unit_converter_lib::units::volume::*;
         let unit_start = UNITS::by_name(&args[1]);
         let value = args[2].parse::<f64>();
@@ -104,13 +107,16 @@ fn main() {
         let unit = UnitContainer::new(unit_start, value);
         let unit_end = UNITS::by_name(&args[3]);
         let converted_number = match unit_end {
-            UNITS::KELVIN => KELVIN::from(unit).0,
-            UNITS::CELSIUS => CELSIUS::from(unit).0,
-            UNITS::FAHRENHEIT => FAHRENHEIT::from(unit).0,
+            UNITS::CmCube => CmCube::from(unit).0,
+            UNITS::MCube => MCube::from(unit).0,
+            UNITS::Liter => Liter::from(unit).0,
+            UNITS::InchCube => InchCube::from(unit).0,
+            UNITS::FootCube => FootCube::from(unit).0,
+            UNITS::UsGallon => UsGallon::from(unit).0,
+            UNITS::ImperialGallon => ImperialGallon::from(unit).0,
         };
         println!("{}", converted_number);
         return;
-        // */
     }
     fail();
 }

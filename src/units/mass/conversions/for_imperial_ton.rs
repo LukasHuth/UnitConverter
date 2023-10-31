@@ -5,7 +5,7 @@ impl From<Kilogram> for ImperialTon {
         Self(u.0 * 0.0009842065276111)
     }
 }
-create_from! {
+mass_create_from! {
     Milligram:ImperialTon,
     Tonne:ImperialTon,
     Gram:ImperialTon,
