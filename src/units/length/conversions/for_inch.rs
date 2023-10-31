@@ -17,7 +17,7 @@ impl From<MILE> for INCH {
 }
 impl From<M> for INCH {
     fn from(unit: M) -> Self {
-        Self(unit.0 * 39.37)
+        Self(unit.0 * 39.37008)
     }
 }
 

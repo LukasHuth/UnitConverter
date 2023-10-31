@@ -1,7 +1,7 @@
 const M_TO_MM: f64 = 1000.0;
 const M_TO_CM: f64 = 100.0;
 const M_TO_KM: f64 = 1.0 / 1000.0;
-const M_TO_INCH: f64 = 39.37;
+const M_TO_INCH: f64 = 39.37008;
 const M_TO_FOOT: f64 = M_TO_INCH / 12.0;
 const M_TO_MILE: f64 = M_TO_INCH / 63360.0;
 const M_TO_YARD: f64 = M_TO_INCH / 36.0;

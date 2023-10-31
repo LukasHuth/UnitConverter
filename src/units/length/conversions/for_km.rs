@@ -2,7 +2,7 @@ use crate::units::length::*;
 
 impl From<M> for KM {
     fn from(u: M) -> Self {
-        Self(u.0 / 1000.0)
+        Self(u.0 * 0.001)
     }
 }
 impl From<MM> for KM { fn from(u: MM) -> Self { KM::from(M::from(u)) } }
