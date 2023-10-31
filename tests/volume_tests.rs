@@ -5,7 +5,7 @@ fn round(x: f64, decimals: u32) -> f64 {
 }
 //const MASS: f64 = 2.0;
 macro_rules! volume_tests {
-    ($($from_type:ty, ($($to_type:ty,$value:expr,$accuracy:expr,)*),)*) => {
+    ($($from_type:ty, ($($to_type:ty,$value:expr,)*),)*) => {
         seq!(MASS in 1..=2 {
             paste::item! {
                 $(
@@ -15,7 +15,7 @@ macro_rules! volume_tests {
                             use unit_converter_lib::units::volume::*;
                             let input = $from_type(MASS as f64);
                             let expected = $value * MASS as f64;
-                            assert_eq!(round($to_type::from(input).0, $accuracy),round(expected, $accuracy));
+                            assert_eq!(round($to_type::from(input).0, 10),round(expected, 10));
                         }
                      )*
                  )*
@@ -25,19 +25,19 @@ macro_rules! volume_tests {
 }
 volume_tests! {
     CmCube, (
-        MCube, 0.000001, 9,
-        Liter, 0.001, 9,
-        InchCube, 0.061024, 9,
-        FootCube, 0.000035, 9,
-        UsGallon, 0.000264, 6,
-        ImperialGallon, 0.00022, 9,
+        MCube, 0.000001,
+        Liter, 0.001,
+        InchCube, 0.061024,
+        FootCube, 0.000035,
+        UsGallon, 0.000264201,
+        ImperialGallon, 0.00022,
         ),
     MCube, (
-        CmCube, 1_000_000.0, 0,
-        Liter, 1_000.0, 0,
-        InchCube, 61024.0, 0,
-        FootCube, 35.0, 0,
-        UsGallon, 264.0, 0,
-        ImperialGallon, 220.0, 0,
+        CmCube, 1_000_000.0,
+        Liter, 1_000.0,
+        InchCube, 61024.0,
+        FootCube, 35.0,
+        UsGallon, 264.201,
+        ImperialGallon, 220.0,
         ),
 }

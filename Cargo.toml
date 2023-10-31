@@ -2,7 +2,11 @@
 name = "unit_converter"
 version = "0.1.0"
 edition = "2021"
-authors = ["me <me@gmail.com>"]
+authors = ["LukasHuth"]
+license-file = "LICENSE.txt"
+description = "A library to convert different units"
+repository = "https://github.com/LukasHuth/UnitConverter"
+readme = "README.md"
 
 [lib]
 name = "unit_converter_lib"
