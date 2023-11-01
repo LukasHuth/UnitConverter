@@ -26,6 +26,22 @@ macro_rules! metric_tests {
     )*
     }
 }
+macro_rules! length_unitcontainer_tests {
+    ($($type:ty$(,)?)*) => {
+        $(
+            paste::item! {
+                #[test]
+                fn [< length_test_unit_container_ $type:lower >]() {
+                    use unit_converter_lib::units::length::*;
+                    let unit_type = UNITS::$type;
+                    let value = 1.0;
+                    let uc = UnitContainer::new(unit_type, value);
+                    assert_eq!(M::from(uc).0, M::from($type(value)).0);
+                }
+            }
+         )*
+    }
+}
 metric_tests! {
     m_to_mm:MM: (2.0, M_TO_MM),
     m_to_cm:CM: (2.0, M_TO_CM),
@@ -35,3 +51,4 @@ metric_tests! {
     m_to_mile:MILE: (2.0, M_TO_MILE),
     m_to_yard:YARD: (2.0, M_TO_YARD),
 }
+length_unitcontainer_tests!{MM,CM,M,KM,FOOT,INCH,MILE,YARD}

@@ -23,6 +23,22 @@ macro_rules! mass_tests {
         });
     }
 }
+macro_rules! mass_unitcontainer_tests {
+    ($($type:ty$(,)?)*) => {
+        $(
+            paste::item! {
+                #[test]
+                fn [< mass_test_unit_container_ $type:lower >]() {
+                    use unit_converter_lib::units::mass::*;
+                    let unit_type = UNITS::$type;
+                    let value = 1.0;
+                    let uc = UnitContainer::new(unit_type, value);
+                    assert_eq!(Kilogram::from(uc).0, Kilogram::from($type(value)).0);
+                }
+            }
+         )*
+    }
+}
 mass_tests! {
     Kilogram, (
         Gram, 1_000.0,
@@ -40,3 +56,4 @@ mass_tests! {
     ImperialTon, (Kilogram, 1.0/0.0009842065276111,),
     UsTon, (Kilogram, 907.185,),
 }
+mass_unitcontainer_tests!{Milligram,Gram,Kilogram,Tonne,ImperialTon,UsTon,Pound,Ounce}

@@ -1,6 +1,6 @@
 #[macro_export]
 macro_rules! speed_create_from {
-    ($($from_type:ty:$to_type:ty,)*) => {
+    ($to_type:ty:($($from_type:ty,)*)) => {
         $(
             impl From<$from_type> for $to_type {
                 fn from(u: $from_type) -> Self {

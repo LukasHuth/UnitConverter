@@ -18,6 +18,22 @@ macro_rules! metric_tests {
     )*
     }
 }
+macro_rules! temperature_unitcontainer_tests {
+    ($($type:ty$(,)?)*) => {
+        $(
+            paste::item! {
+                #[test]
+                fn [< temperature_test_unit_container_ $type:lower >]() {
+                    use unit_converter_lib::units::temperature::*;
+                    let unit_type = UNITS::$type;
+                    let value = 1.0;
+                    let uc = UnitContainer::new(unit_type, value);
+                    assert_eq!(KELVIN::from(uc).0, KELVIN::from($type(value)).0);
+                }
+            }
+         )*
+    }
+}
 fn k_to_c(x: f64) -> f64 {
     x - 273.15
 }
@@ -44,3 +60,4 @@ metric_tests!{
     CELSIUS:KELVIN: 50.0, c_to_k ,
     FAHRENHEIT:KELVIN: 50.0, f_to_k ,
 }
+temperature_unitcontainer_tests!{KELVIN,CELSIUS,FAHRENHEIT}
