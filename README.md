@@ -30,5 +30,27 @@ let unit_container = length::UnitContainer::new(unit_type, value);
 let converted_result_as_float = length::M::from(unit_container).0;
 ```
 
+## how to create a unit
+```
+use unit_converter_lib::units;
+let unit = units::<unit type>::<unit>(<value as f64>);
+```
+<unit type> = length|mass|volume|speed|temperature
+
+## how to create a unit container
+### version 1
+```
+use unit_converter_lib::units;
+let unit_type = units::<unit type>::UNITS::<unit>;
+let uc = units::<unit type>::UnitContainer::new(unit_type, <value>);
+```
+<unit type> = length|mass|volume|speed|temperature
+### version 2
+```
+use unit_converter_lib::units;
+let uc = units::<unit type>::UnitContainer::<unit>(units::<unit type>::<unit>(<value>));
+```
+<unit type> = length|mass|volume|speed|temperature
+
 ## source for conversion rates
 `https://www.isa.org/getmedia/5be3daca-5c44-4d9e-bf1c-a4aa55cfb759/CCST-Conversions-document.pdf`
