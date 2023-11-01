@@ -2,7 +2,7 @@ use crate::units::mass::*;
 
 impl From<Kilogram> for Ounce {
     fn from(u: Kilogram) -> Self {
-        Self(u.0 * 35.273961949583)
+        Self(u.0 * 35.27337)
     }
 }
 mass_create_from! {
