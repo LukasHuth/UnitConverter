@@ -7,7 +7,7 @@ license-file = "LICENSE.txt"
 description = "A library to convert different units"
 repository = "https://github.com/LukasHuth/UnitConverter"
 readme = "README.md"
-keywords = ["converter","units","unit converter"]
+keywords = ["converter","units"]
 
 [lib]
 name = "unit_converter_lib"
