@@ -21,7 +21,7 @@ let converted_result_as_float = converted_result.0;
 get unit by name and save it in a unit container, after that we convert it to meters
 ```rust
 use unit_converter_lib::units::length;
-// get the unit by it's name
+// get the unit by its name
 let unit_type: length::UNITS = length::UNITS::by_name("foot");
 let value: f64 = 5.0;
 // create a unit container with a specified unit and value
